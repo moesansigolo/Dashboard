@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="container">
+  <h2>Login</h2>
+</div>
+
+  <div class="container col-sm-4">
+    <label for="usuario" class="active">Email address</label>
+    <input [(ngModel)]="usuario.nome" type="email" class="form-control" id="usuario" for="usuario" />
+  </div>
+
+  <div class="container col-sm-4">
+    <label for="senha" class="active">Password</label>
+    <input [(ngModel)]="usuario.senha" id="senha" type="password" class="form-control active"  />
+  </div>
+
+  <div class="container col-sm-4">
+    <button type="submit" class="btn btn-success" (click)="fazerLogin()">Fazer Login</button>
+    <button type="submit" class="btn btn-primary" (click)="fazerCadastro()">Cadastrar</button>
+  </div>
+

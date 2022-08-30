@@ -7,6 +7,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { CursosComponent } from './cursos/cursos.component';
+import { AuthService } from './login/auth.service';
+import { FormsModule } from '@angular/forms';
+import { SobreComponent } from './sobre/sobre.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +18,16 @@ import { CursosComponent } from './cursos/cursos.component';
     HomeComponent,
     LoginComponent,
     HeaderComponent,
-    CursosComponent
+    CursosComponent,
+    SobreComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
