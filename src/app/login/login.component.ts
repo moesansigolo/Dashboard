@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Usuario } from './usuario';
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   public usuario: Usuario = new Usuario();
 
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -22,8 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   fazerCadastro(){
-    console.log('Clicando para fazer cadastro....')
-
+    this.router.navigateByUrl('/cadastro');
   }
 
 }

@@ -18,7 +18,7 @@ export class AuthService {
       this.desabilitarBotao = false;
 
       // this.mostrarMenuEmiter.emit(true)
-      this.router.navigate(['/'])
+      this.router.navigate(['/home'])
 
     }else{
       this.usuarioAutenticado = false;

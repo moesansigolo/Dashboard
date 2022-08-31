@@ -11,6 +11,7 @@ import { AuthService } from './login/auth.service';
 import { FormsModule } from '@angular/forms';
 import { SobreComponent } from './sobre/sobre.component';
 import { FooterComponent } from './footer/footer.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +21,14 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     CursosComponent,
     SobreComponent,
-    FooterComponent
+    FooterComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
