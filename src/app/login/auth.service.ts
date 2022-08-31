@@ -1,6 +1,7 @@
 import { Usuario } from './usuario';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +16,26 @@ export class AuthService {
   fazerLogin(usuario: Usuario){
     if (usuario.nome === 'usuario@email.com.br' && usuario.senha === '123456789') {
       this.usuarioAutenticado = true;
-      this.desabilitarBotao = false;
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Login realizado com sucesso',
+        showConfirmButton: false,
+        timer: 1500
+      })
+
 
       // this.mostrarMenuEmiter.emit(true)
       this.router.navigate(['/home'])
 
     }else{
       this.usuarioAutenticado = false;
-      // this.mostrarMenuEmiter.emit(false);
-      this.desabilitarBotao = true
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'E-mail ou senha inválidos',
+
+      })
     }
   }
 }
