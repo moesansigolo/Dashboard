@@ -9,13 +9,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'NavaTraining';
 
-  mostrarMenu: boolean = false;
-
-  constructor(private authService: AuthService){}
+  constructor(){}
 
   ngOnInit(){
-    this.authService.mostrarMenuEmiter.subscribe(
-      mostrar => this.mostrarMenu = mostrar
-    );
   }
 }

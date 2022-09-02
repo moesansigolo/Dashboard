@@ -13,8 +13,6 @@ export class CursosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  angular(){
-    this.router.navigateByUrl('youtube.com/playlist?list=PLGxZ4Rq3BOBpwaVgAPxTxhdX_TfSVlTcY')
-  }
+  
 
 }

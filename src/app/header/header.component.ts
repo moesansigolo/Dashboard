@@ -1,3 +1,4 @@
+import { AuthService } from './../login/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  mostrarMenu: boolean = false;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.authService.mostrarMenuEmiter.subscribe(
+      mostrar => this.mostrarMenu = mostrar
+    );
   }
 
 }

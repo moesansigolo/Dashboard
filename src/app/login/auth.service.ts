@@ -23,13 +23,12 @@ export class AuthService {
         showConfirmButton: false,
         timer: 1500
       })
-
-
-      // this.mostrarMenuEmiter.emit(true)
+      this.mostrarMenuEmiter.emit(true)
       this.router.navigate(['/home'])
 
     }else{
       this.usuarioAutenticado = false;
+      this.mostrarMenuEmiter.emit(false);
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
