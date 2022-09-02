@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { SobreComponent } from './sobre/sobre.component';
 import { FooterComponent } from './footer/footer.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { AuthGuard } from './guards/auth-guard';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     FormsModule,
 
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
