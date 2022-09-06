@@ -1,6 +1,7 @@
 import { AuthService } from './../login/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,6 +12,7 @@ export class CadastroComponent implements OnInit {
   registerForm!: FormGroup;
 
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
     private authService: AuthService) {
 
@@ -23,14 +25,14 @@ export class CadastroComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('user'));
+    
   }
 
   submit() {
       let dataRegister = this.registerForm.getRawValue();
 
     this.authService.register(dataRegister).subscribe((dataServer) => {
-      console.log(dataServer);
+      this.router.navigate(['/login'])
 
     });
   }

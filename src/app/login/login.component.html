@@ -8,11 +8,6 @@
     <input type="email" class="form-control" formControlName="email" id="usuario" for="usuario" />
   </div>
 
-  <!-- <div class="mensagem-erro"
-    *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched">
-    Insira um e-mail
-  </div> -->
-
   <div class="container col-sm-4">
     <label for="senha" class="active">Password</label>
     <input id="senha" type="password" class="form-control active" formControlName="senha"  />
@@ -20,7 +15,7 @@
 
   <div class="container col-sm-4 d-grid gap-2">
     <button type="submit" class="btn btn-success">Fazer Login</button>
-    <button  type="button" class="btn btn-primary" [routerLink]="['cadastrar']">Cadastrar</button>
+    <button  type="button" class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
   </div>
 </form>
 

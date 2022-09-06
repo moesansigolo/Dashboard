@@ -3,20 +3,20 @@
   <h6>Crie uma conta gratuita para ter acesso a todos os cursos.</h6>
 </div>
 
-<form [formGroup]="registerForm" (submit)=" submit()">
+<form [formGroup]="registerForm" (submit)="submit()">
   <div class="container col-sm-4">
     <label for="nome" class="active">Nome</label>
-    <input type="nome" class="form-control" id="nome" for="nome" />
+    <input type="nome" class="form-control" formControlName="nome" id="nome" for="nome" />
   </div>
 
   <div class="container col-sm-4">
     <label for="email" class="active">E-mail</label>
-    <input type="email" class="form-control" id="email" for="email" />
+    <input type="email" class="form-control" formControlName="email" id="email" for="email" />
   </div>
 
   <div class="container col-sm-4">
     <label for="senha" class="active">Senha</label>
-    <input type="password" class="form-control" id="senha" for="senha" />
+    <input type="password" class="form-control" formControlName="senha" id="senha" for="senha" />
   </div>
 
   <div class="container col-sm-4 d-grid gap-2">

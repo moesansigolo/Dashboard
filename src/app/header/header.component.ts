@@ -13,9 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
-    // this.authService.mostrarMenuEmiter.subscribe(
-    //   mostrar => this.mostrarMenu = mostrar
-    // );
+
   }
 
 

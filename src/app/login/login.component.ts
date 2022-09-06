@@ -1,8 +1,9 @@
-import { Usuario } from './usuario';
+
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -37,23 +38,22 @@ export class LoginComponent implements OnInit {
 
             delete dataServer[0].senha;
             localStorage.setItem('user', JSON.stringify(dataServer[0]))
-            alert("Login realizado com sucesso")
+            Swal.fire("Bem vindo a Nava-Training");
             this.router.navigate(['/home']);
-
-          }else{
-            alert("Usuário e Senha Inválidas!")
           }
-        }else{
-          alert("usuario não cadastrado")
+          }else{
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops....',
+              text: 'Usuário ou senha inválida',
+              footer: 'Verifique e-mail e senha digitado'
+            })
         }
-
       }
     )
-
-
   }
 
-  fazerCadastro(){
+  cadastrar(){
     this.router.navigate(['/cadastro']);
   }
 
