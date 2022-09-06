@@ -1,4 +1,4 @@
-<nav *ngIf="mostrarMenu" class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav *ngIf="authService.usuarioEstaAutenticado" class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="login">Nava-Training</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,10 +13,10 @@
           <a class="nav-link" routerLinkActive="active"  routerLink="cursos">Cursos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active"  routerLink="login">Login</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="sobre">Sobre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="sobre">Sobre</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="login" (click)="this.authService.logout()">logout</a>
         </li>
       </ul>
     </div>

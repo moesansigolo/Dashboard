@@ -2,21 +2,25 @@
   <h2>Login</h2>
 </div>
 
-
+<form [formGroup]="loginForm" (submit)=" fazerLogin()">
   <div class="container col-sm-4">
     <label for="usuario" class="active">Email address</label>
-    <input [(ngModel)]="usuario.nome" type="email" class="form-control" id="usuario" for="usuario" />
+    <input type="email" class="form-control" formControlName="email" id="usuario" for="usuario" />
   </div>
+
+  <!-- <div class="mensagem-erro"
+    *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched">
+    Insira um e-mail
+  </div> -->
 
   <div class="container col-sm-4">
     <label for="senha" class="active">Password</label>
-    <input [(ngModel)]="usuario.senha" id="senha" type="password" class="form-control active"  />
+    <input id="senha" type="password" class="form-control active" formControlName="senha"  />
   </div>
-
 
   <div class="container col-sm-4 d-grid gap-2">
-    <button type="submit" class="btn btn-success" (click)="fazerLogin()">Fazer Login</button>
-    <button type="submit" class="btn btn-primary" (click)="fazerCadastro()">Cadastrar</button>
+    <button type="submit" class="btn btn-success">Fazer Login</button>
+    <button  type="button" class="btn btn-primary" [routerLink]="['cadastrar']">Cadastrar</button>
   </div>
-
+</form>
 

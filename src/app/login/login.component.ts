@@ -1,7 +1,8 @@
+import { Usuario } from './usuario';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
-import { Usuario } from './usuario';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,20 +11,50 @@ import { Usuario } from './usuario';
 })
 export class LoginComponent implements OnInit {
 
-  public usuario: Usuario = new Usuario();
+  loginForm!: FormGroup
 
-
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService,
+    private router: Router,
+    private formBuilder: FormBuilder
+    ) { }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      senha: ['', [Validators.required]]
+    })
+    console.log(localStorage.getItem('user'));
   }
 
-  fazerLogin(){
-    this.authService.fazerLogin(this.usuario);
+  fazerLogin(){ //SUBMIT
+    // debugger
+    let dataLogin = this.loginForm.getRawValue();
+
+    this.authService.login(dataLogin).subscribe(
+      dataServer => {
+        if (dataServer.length > 0) {
+          if(dataLogin.senha == dataServer[0].senha){
+
+            delete dataServer[0].senha;
+            localStorage.setItem('user', JSON.stringify(dataServer[0]))
+            alert("Login realizado com sucesso")
+            this.router.navigate(['/home']);
+
+          }else{
+            alert("Usuário e Senha Inválidas!")
+          }
+        }else{
+          alert("usuario não cadastrado")
+        }
+
+      }
+    )
+
+
   }
 
   fazerCadastro(){
-    this.router.navigateByUrl('/cadastro');
+    this.router.navigate(['/cadastro']);
   }
 
 }

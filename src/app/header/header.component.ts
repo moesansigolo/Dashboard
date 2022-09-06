@@ -10,12 +10,13 @@ export class HeaderComponent implements OnInit {
 
   mostrarMenu: boolean = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
-    this.authService.mostrarMenuEmiter.subscribe(
-      mostrar => this.mostrarMenu = mostrar
-    );
+    // this.authService.mostrarMenuEmiter.subscribe(
+    //   mostrar => this.mostrarMenu = mostrar
+    // );
   }
+
 
 }

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { AuthService } from './login/auth.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SobreComponent } from './sobre/sobre.component';
 import { FooterComponent } from './footer/footer.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -29,6 +30,8 @@ import { AuthGuard } from './guards/auth-guard';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
 
   ],
   providers: [AuthService, AuthGuard],
