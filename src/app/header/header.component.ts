@@ -8,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  mostrarMenu: boolean = false;
+  navbarOpen = false;
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  } 
+
 
   constructor(public authService: AuthService) { }
 
